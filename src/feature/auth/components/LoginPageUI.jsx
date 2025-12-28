@@ -33,6 +33,7 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
             <div className="grid gap-2">
               <Label className="text-muted" htmlFor="email">Email</Label>
               <Input
+                className="border-default"
                 id="email"
                 type="email"
                 placeholder="m@example.com"
@@ -48,12 +49,12 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
                 <Label className="text-muted" htmlFor="password">Password</Label>
                 <a
                   href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-muted"
                 >
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
+              <Input id="password" type="password" className="border-default" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
             </div>
             <Button disabled={loading} type="submit" className="w-full bg-primary hover-bg-primary-dark text-white" >
           {loading ? "loading": "Login"}

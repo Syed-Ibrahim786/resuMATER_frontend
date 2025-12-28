@@ -35,6 +35,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
               <Input
                 id="name"
                 type="text"
+                className="border-default"
                 placeholder="syed-ibrahim"
                 required
                 onChange={(e) => {
@@ -46,6 +47,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
             <div className="grid gap-2">
               <Label className="text-muted" htmlFor="email">Email</Label>
               <Input
+              className="border-default"
                 id="email"
                 type="email"
                 placeholder="m@example.com"
@@ -59,14 +61,9 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
             <div className="grid gap-2">
               <div className="flex items-center ">
                 <Label className="text-muted" htmlFor="password">Password</Label>
-                <a
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </a>
+                
               </div>
-              <Input id="password" type="password" required onChange={(e) => {
+              <Input id="password" type="password" className="border-default" required onChange={(e) => {
                   setCredentials({...credentials, password:e.target.value})
                  
                 }}/>
