@@ -36,7 +36,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
                 id="name"
                 type="text"
                 className="border-default"
-                placeholder="syed-ibrahim"
+                placeholder="eg. syed ibrahim"
                 required
                 onChange={(e) => {
                   setCredentials({...credentials, name:e.target.value})

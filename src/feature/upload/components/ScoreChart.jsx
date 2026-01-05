@@ -9,7 +9,7 @@ import {
 
 
 
-const ResumeScoreChart = ({ score = 82 }) => {
+const ResumeScoreChart = ({ score = 82 , className = "", title}) => {
   const chartData = [
     { name: "Score", value: score, fill: "green" },
     { name: "Remaining", value: 100 - score, fill: "red " },
@@ -29,21 +29,23 @@ const ResumeScoreChart = ({ score = 82 }) => {
     review = "awesome";
   }
 
+  const cardStyle = "flex gap-0 bg-surface border border-default" + " " +  className;
+
 
 
   return (
-    <Card className="bg-surface border border-default">
-      <CardHeader className="text-center">
-        <CardTitle className="text-white">ATS Score</CardTitle>
+    <Card className={cardStyle} >
+      <CardHeader className="text-center  ">
+        <CardTitle className="text-white">{title}</CardTitle>
       </CardHeader>
 
-      <CardContent className="flex justify-center">
-        <PieChart width={220} height={220}>
+      <CardContent className="flex justify-center p-0 ">
+        <PieChart width={150} height={150}>
           <Pie
             data={chartData}
             dataKey="value"
-            innerRadius={70}
-            outerRadius={90}
+            innerRadius={50}
+            outerRadius={65}
             strokeWidth={0}
           >
             <Label
@@ -58,14 +60,14 @@ const ResumeScoreChart = ({ score = 82 }) => {
                   >
                     <tspan
                       x={cx}
-                      y={cy}
-                      className="fill-white text-3xl font-bold"
+                      y={cy - 5}
+                      className="fill-white text-md font-bold"
                     >
                       {score}%
                     </tspan>
                     <tspan
                       x={cx}
-                      y={cy + 22}
+                      y={cy + 12}
                       className="fill-muted text-sm"
                     >
                       {review}

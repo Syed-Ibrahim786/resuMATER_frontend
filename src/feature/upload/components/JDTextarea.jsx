@@ -15,12 +15,15 @@ const JDTextarea = ({ data, setData }) => {
         }}
         
         id="JD"
-        className=" 
+        className="
+        w-full
+        h-[350px] 
         bg-surface
       text-white
         border border-default
         rounded-xl
-        resize-vertical"
+        resize-none"
+        required
         placeholder="paste your job description here..."
       />
     </section>
