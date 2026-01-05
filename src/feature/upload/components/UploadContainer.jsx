@@ -4,25 +4,36 @@ import { analyze } from "../service/analyzeService";
 
 
 const UploadContainer = () => {
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [res, setRes] = useState({
-    score:null,
-    feedback:""
-  })
+  /* **************** Response state ****************** */
+  const [res, setRes] = useState()
+  const [suggestions, setSuggestions] = useState([]);
+
+  let suggestionsArray;//stores cleansed suggestions field
+  
+
+
   async function analyzeResume(data) {
     const formData = new FormData();
 
   formData.append("resume", data.resume);
   formData.append("JD", data.JD);
-  console.log(data);
+  // console.log(data);
     setError(false);
     setLoading(true);
     try {
       const response = await analyze(formData);
       console.log(response);
       setRes(response.data);
+      
+  const responseSuggestions = response.data.suggestions;
+  const cleansedSuggestions = responseSuggestions.replace(/\*\*(.*?)\*\*/g,"$1")
+  suggestionsArray = cleansedSuggestions?.split(/\n/g);
+  setSuggestions(suggestionsArray);
+  console.log(suggestionsArray);
     } catch (error) {
       console.log(error);
       setError(true);
@@ -49,6 +60,7 @@ const UploadContainer = () => {
       errorMsg={errorMsg}
       data={data}
       setData={setData}
+      suggestions={suggestions}
     />
   );
 };

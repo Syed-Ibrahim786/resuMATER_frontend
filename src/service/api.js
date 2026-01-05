@@ -1,8 +1,7 @@
 import { loginSuccess } from "@/feature/auth/slice/authSlice";
+import { store } from "@/store/store";
 import axios from "axios";
-import { error } from "node:console";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -12,39 +11,43 @@ export const api = axios.create({
     
 })
 
+/* *******************      Request Interceptor        ***************** */
 
-axios.interceptors.request.use(
-    request => {
-        const access_token = useSelector(state => state.auth.access_token);
+api.interceptors.request.use(
+    config => {
+        const access_token = store.getState().auth.token;
+        console.log(access_token);
         if(access_token){
-            request.headers['Authorization'] = `Bearer ${access_token}`;
+            config.headers.Authorization = `Bearer ${access_token}`;
         }
-        return request;
+        return config;
     },
     error => {
-        Promise.reject(error);
+        return Promise.reject(error);
     }
 );
 
-axios.interceptors.response.use(
+
+/* **********************       Response Interceptor ******************* */
+api.interceptors.response.use(
     response => response,
     async (error) => {
         const originalRequest = error.config;
-        if(error.response.state === 401 && !originalRequest._retry){
+        if(error.response.status === 401 && !originalRequest._retry){
+            console.log("accesstoken expired")
             originalRequest._retry = true;
             try {
                 const response = await axios.post("/auth/refresh",{
                     withCredentials:true
                 })
                 const {access_token} =  response.data;
-                const dispatch = useDispatch();
-                dispatch(loginSuccess({ token: access_token }))
+                store.dispatch(loginSuccess({ token: access_token }))
                 api.defaults.headers.common['Authorization'] = access_token;
                 return api(originalRequest);
             } catch (error) {
-                dispatch(loginSuccess({ token: null }));
-                const navigate = useNavigate();
-                navigate("/login");
+                console.log("refreshtoken expired")
+                store.dispatch(loginSuccess({ token: null }));
+                window.location.href = "/login";
                 return Promise.reject(error);
 
             }
