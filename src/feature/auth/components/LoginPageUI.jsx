@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom"
 
 export function LoginPageUI({ submit, loading, setLoading, error, setError,errorMsg, setErrorMsg, credentials, setCredentials}) {
   return (
-    <Card className="w-full max-w-sm bg-surface border-default mx-auto">
+    <Card className="w-[95%] max-w-sm bg-surface border-default mx-auto mt-20">
       <CardHeader>
         <CardTitle className="text-white">Login to your account</CardTitle>
         <CardDescription>
@@ -25,7 +25,7 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
         </CardAction>
       </CardHeader>
       <CardContent>
-        <form className="text-white" onSubmit={(e) => {
+        <form className="text-white" autoComplete="off" onSubmit={(e) => {
   e.preventDefault();
     submit(credentials);
 }}>
@@ -33,11 +33,13 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
             <div className="grid gap-2">
               <Label className="text-muted" htmlFor="email">Email</Label>
               <Input
-                className="border-default"
+                className="border-default focus:bg-surface"
                 id="email"
                 type="email"
                 placeholder="m@example.com"
                 required
+                autoFocus
+                autoComplete="off"
                 onChange={(e) => {
                   setCredentials({...credentials, email:e.target.value})
                  
@@ -54,7 +56,7 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" className="border-default" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
+              <Input id="password" type="password" autoComplete="new-password" className="border-default" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
             </div>
             <Button disabled={loading} type="submit" className="w-full bg-primary hover-bg-primary-dark text-white" >
           {loading ? "loading": "Login"}

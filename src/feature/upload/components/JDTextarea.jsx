@@ -17,7 +17,7 @@ const JDTextarea = ({ data, setData }) => {
         id="JD"
         className="
         w-full
-        h-[350px] 
+        h-[270px] 
         bg-surface
       text-white
         border border-default
