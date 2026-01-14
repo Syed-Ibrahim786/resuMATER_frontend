@@ -25,7 +25,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
         </CardAction>
       </CardHeader>
       <CardContent>
-        <form className="text-white" onSubmit={(e) => {
+        <form className="text-white" autoComplete="off" onSubmit={(e) => {
           e.preventDefault();
           submit(credentials);
         }}>
@@ -37,6 +37,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
                 type="text"
                 className="border-default"
                 placeholder="eg. syed ibrahim"
+                autoComplete="off"
                 required
                 onChange={(e) => {
                   setCredentials({...credentials, name:e.target.value})
@@ -52,6 +53,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
                 type="email"
                 placeholder="m@example.com"
                 required
+                autoComplete="off"
                 onChange={(e) => {
                   setCredentials({...credentials, email:e.target.value})
                  
@@ -63,7 +65,7 @@ export function RegisterPageUI({ submit, loading, setLoading, error, setError,er
                 <Label className="text-muted" htmlFor="password">Password</Label>
                 
               </div>
-              <Input id="password" type="password" className="border-default" required onChange={(e) => {
+              <Input id="password" type="password" autoComplete="new-password" className="border-default" required onChange={(e) => {
                   setCredentials({...credentials, password:e.target.value})
                  
                 }}/>

@@ -3,10 +3,12 @@ import { Label } from "@/components/ui/label";
 import { X } from "lucide-react";
 import { useRef } from "react";
 
-export function ResumeInput({ data, setData }) {
+export function  ResumeInput({ data, setData }) {
   const dragAndDropBox = useRef(null);
   function handleDrop(e) {
     e.preventDefault();
+    dragAndDropBox.current.classList.remove("bg-success")
+    console.log(dragAndDropBox.current.classList)
     setData({ ...data, resume: e.dataTransfer.files[0] });
   }
  
@@ -20,18 +22,19 @@ export function ResumeInput({ data, setData }) {
      rounded-2xl border-2 border-dashed  border-default 
      text-muted"
       onDragOver={(e) => {
-        e.preventDefault();}
+        e.preventDefault();
+        dragAndDropBox.current.classList += " bg-success"}
       }
       onDrop={handleDrop}
       ref={dragAndDropBox}
     >
       {
-        data.resume ? <div className="flex gap-2"><p>{data.resume.name} </p><p onClick={flush}><X /></p></div> :
+        data.resume ? <div className="flex gap-2 flex-wrap "><p>{data.resume.name} </p><p onClick={flush}><X /></p></div> :
         <>
         <Label htmlFor="pdf" className="text-lg">
           Drag&Drop
         </Label>
-        <Label className="text-sm font-light">or Click to enter Resume</Label>
+        <Label className="text-sm font-light text-accent">or Click to enter Resume</Label>
         <Input
           onChange={(e) => {
             console.log(e.target.files);
@@ -39,6 +42,7 @@ export function ResumeInput({ data, setData }) {
           }}
           id="pdf"
           className="
+         
           hidden
           bg-surface
           border border-default

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -128,6 +129,7 @@
   .bg-accent { background-color: #F59E0B; }
   .bg-bg { background-color: #0B0F14; }
   .bg-surface { background-color: #111827; }
+  .bg-success { background-color: #16A34A; }
 
   .text-primary { color: #DC2626; }
   .text-accent { color: #F59E0B; }
@@ -145,6 +147,52 @@
   .hover-bg-primary:hover { background-color: #DC2626; }
   .hover-bg-primary-dark:hover { background-color: #991B1B; }
   .hover-text-primary:hover { color: #DC2626; }
+  .text-gradient {
+    background: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #DC2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(135deg, #111827 0%, #0B0F14 100%);
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
 
 
+
+body{
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
 }
