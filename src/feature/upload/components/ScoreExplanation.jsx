@@ -30,7 +30,8 @@ const ScoreExplanation = ({ res }) => {
       <div ref={scoreExplanationContainer} style={{ display: "none" }}>
         {res.scoreExplanation?.map((entry, index) => (
           <p className="text-muted" key={index}>
-            <b>{entry.scoreType}</b>: {entry.explanation}
+            <b className="text-lg block">{entry.scoreType}</b>
+            <p className="text-sm">{entry.explanation}</p>
           </p>
         ))}
       </div>

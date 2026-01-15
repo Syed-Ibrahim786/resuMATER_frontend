@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom"
 
 export function RegisterPageUI({ submit, loading, setLoading, error, setError,errorMsg, setErrorMsg, credentials, setCredentials}) {
   return (
-    <Card className="w-full max-w-sm bg-surface border-default mx-auto">
+    <Card className="w-[95%] max-w-sm bg-gradient-card border-default mx-auto mt-15">
       <CardHeader>
         <CardTitle className="text-white" >Create your account</CardTitle>
         <CardDescription>

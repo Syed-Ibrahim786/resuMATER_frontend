@@ -8,6 +8,7 @@ import { useRef } from "react";
 import Scoreboard from "./Scoreboard";
 import SuggestionSection from "../SuggestionSection";
 import ScoreExplanation from "./ScoreExplanation";
+import AboutScore from "./AboutScore";
 
 const UploadUI = ({
   res,
@@ -59,6 +60,10 @@ const UploadUI = ({
             <SuggestionSection suggestions={suggestions} />
 
             <ScoreExplanation res={res} />
+            {/* <span className=" w-fit text-muted border rounded-2xl p-1 border-default">Why Trust us?</span>
+            <div className="w-full border-b border-default"></div> */}
+
+            <AboutScore/>
           </article>
         ) : 
         (
