@@ -7,7 +7,7 @@ const JDTextarea = ({ data, setData }) => {
   return (
     <section className="bg-surface text-muted p-4 rounded-2xl border border-default">
       <Label htmlFor="JD" className="mb-6 text-lg">
-        Paste JD
+        Paste the job Description
       </Label>
       <Textarea
         onChange={(e) => {

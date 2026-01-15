@@ -3,13 +3,15 @@ import { PieChart, Pie, Label } from "recharts"
 import {
   Card,
   CardContent,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Info } from "lucide-react"
 
 
 
-const ResumeScoreChart = ({ score = 82 , className = "", title}) => {
+const ResumeScoreChart = ({ score = 82 , className = "", title, aboutScore}) => {
   const chartData = [
     { name: "Score", value: score, fill: "green" },
     { name: "Remaining", value: 100 - score, fill: "red " },
@@ -29,7 +31,7 @@ const ResumeScoreChart = ({ score = 82 , className = "", title}) => {
     review = "awesome";
   }
 
-  const cardStyle = "flex gap-0 bg-surface border border-default" + " " +  className;
+  const cardStyle = "flex gap-0 bg-gradient-card border border-default" + " " +  className;
 
 
 
@@ -79,6 +81,7 @@ const ResumeScoreChart = ({ score = 82 , className = "", title}) => {
           </Pie>
         </PieChart>
       </CardContent>
+        {aboutScore && <CardFooter ><a href="#AboutScore" className="w-full flex justify-center items-center text-[12px] text-gray-500"><Info size={12}/>How is this calculated?</a></CardFooter>}
     </Card>
   )
 }

@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom"
 
 export function LoginPageUI({ submit, loading, setLoading, error, setError,errorMsg, setErrorMsg, credentials, setCredentials}) {
   return (
-    <Card className="w-[95%] max-w-sm bg-surface border-default mx-auto mt-20">
+    <Card className="w-[95%] max-w-sm bg-gradient-card border-default mx-auto mt-20">
       <CardHeader>
         <CardTitle className="text-white">Login to your account</CardTitle>
         <CardDescription>

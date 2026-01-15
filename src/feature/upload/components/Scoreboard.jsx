@@ -8,6 +8,7 @@ const Scoreboard = ({res}) => {
               score={res.overallScore}
               className="col-start-1 col-span-2 md:col-span-4  row-start-1 row-span-1"
               title="Overall Score"
+              aboutScore={true}
             />
             <ResumeScoreChart
               score={res.skillScore}
