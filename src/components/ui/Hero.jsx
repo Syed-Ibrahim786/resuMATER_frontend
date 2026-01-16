@@ -1,8 +1,10 @@
 import { ArrowRight, Sparkles, Target, Zap } from 'lucide-react'
 import React from 'react'
 import { Button } from './button'
+import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <header>
         <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
@@ -36,7 +38,7 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={() => navigate("/mainPage")}>
               Analyze My Resume
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -46,7 +48,7 @@ const Hero = () => {
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          {/* <div className="grid grid-cols-3 gap-8 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <Target className="w-4 h-4 text-primary" />
@@ -68,7 +70,7 @@ const Hero = () => {
               </div>
               <span className="text-xs md:text-sm text-muted">Resumes Optimized</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       

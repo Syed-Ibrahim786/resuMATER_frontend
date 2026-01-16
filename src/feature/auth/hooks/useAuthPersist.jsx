@@ -1,20 +1,30 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { refresh } from "../services/authService";
-import { loginSuccess } from "../slice/authSlice";
+import { loginSuccess, authChecked } from "../slice/authSlice";
 
 const useAuthPersist = () => {
   const dispatch = useDispatch();
 
-  useLayoutEffect(() => { 
-    refresh()
-      .then((res) => dispatch(loginSuccess({ token: res.data.access_token })))
-      .catch((e) => {
-        console.log(e);
-      });
+  useEffect(() => { 
+    async function refreshToken(){
+      
+      try {
+        const res = await refresh();
+        dispatch(loginSuccess({ token: res.data.access_token }))
+        console.log("refresh successfull")
+        
+      } catch (error) {
+        console.log(error);
+      }finally{
+        dispatch(authChecked());
+      }
+    }
 
-      console.log("refresh successfull")
-  }, [dispatch]);
+    refreshToken();
+      
+
+  }, []);
 };
 
 export default useAuthPersist;

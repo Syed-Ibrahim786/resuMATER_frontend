@@ -1,16 +1,24 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import useAuthPersist from '../hooks/useAuthPersist';
+import { Spinner } from '@/components/ui/spinner';
+import Loading from '@/components/ui/Loading';
 
 const ProtectedRoute = () => {
-    useAuthPersist();
-    const token = useSelector(state => state.auth.token);
-    console.log(token);
-    return (
-        !token ? <Navigate to="/login" replace/> : <Outlet/> 
-    )
+    
+    const {isAuthenticated, authChecked} = useSelector(state => state.auth);
+    const navigate = useNavigate();
+
+
+    if(!authChecked) return <Loading/>
+
+    if(!isAuthenticated){
+        return navigate("/login");
+    }
+    return <Outlet/> 
+    
 }
 
 export default ProtectedRoute
