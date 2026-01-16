@@ -39,7 +39,7 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
                 placeholder="m@example.com"
                 required
                 autoFocus
-                autoComplete="off"
+                
                 onChange={(e) => {
                   setCredentials({...credentials, email:e.target.value})
                  
@@ -56,7 +56,7 @@ export function LoginPageUI({ submit, loading, setLoading, error, setError,error
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" autoComplete="new-password" className="border-default" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
+              <Input id="password" type="password"  className="border-default" maxLength="10" onChange={(e) => setCredentials({...credentials, password:e.target.value})} required />
             </div>
             <Button disabled={loading} type="submit" className="w-full bg-primary hover-bg-primary-dark text-white" >
           {loading ? "loading": "Login"}
