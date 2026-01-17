@@ -12,7 +12,10 @@ const ProtectedRoute = () => {
     const navigate = useNavigate();
 
 
-    if(!authChecked) return <Loading/>
+    if(!authChecked){
+        console.log("loading...");
+        return <Loading/>
+    }
 
     if(!isAuthenticated){
         return navigate("/login");
