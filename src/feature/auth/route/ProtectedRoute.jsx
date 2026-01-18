@@ -1,26 +1,33 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
-import useAuthPersist from '../hooks/useAuthPersist';
-import { Spinner } from '@/components/ui/spinner';
+import {  NavLink, Outlet, useNavigate } from 'react-router-dom';
+
+
 import Loading from '@/components/ui/Loading';
 
 const ProtectedRoute = () => {
     
-    const {isAuthenticated, authChecked} = useSelector(state => state.auth);
+    const {isAuthenticated, isAuthChecked} = useSelector(state => state.auth);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if(isAuthChecked && !isAuthenticated){
+            navigate("/login");
+        }
+    },[isAuthChecked, isAuthenticated])
 
-    if(!authChecked){
+    if(!isAuthChecked){
         console.log("loading...");
         return <Loading/>
     }
 
-    if(!isAuthenticated){
-        return navigate("/login");
+
+    
+    else if(isAuthenticated){
+
+        return <Outlet/> 
     }
-    return <Outlet/> 
     
 }
 

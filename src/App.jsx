@@ -11,11 +11,11 @@ const App = () => {
   useAuthPersist();
   return (
     <Routes>
-      <Route element={<Navbar/>}>
-      <Route path="/" element={<LandingPage/>} />
+      <Route path="/" element={<Navbar/>}>
+      <Route index element={<LandingPage/>} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/mainPage" element={<Upload />} />
       </Route>
