@@ -5,7 +5,7 @@ const authSlice = createSlice({
     initialState:{
         name:null,
         token:null,
-        authChecked:false,
+        isAuthChecked:false,
         isAuthenticated:false
     },
     reducers:{
@@ -15,7 +15,7 @@ const authSlice = createSlice({
             state.isAuthenticated = true
         },
         authChecked: (state) => {
-            state.authChecked = true
+            state.isAuthChecked = true
         }
 
     }

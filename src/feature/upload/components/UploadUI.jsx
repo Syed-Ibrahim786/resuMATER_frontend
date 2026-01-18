@@ -1,10 +1,7 @@
 import { ResumeInput } from "./ResumeInput";
 import JDTextarea from "./JDTextarea";
 import { Button } from "@/components/ui/button";
-import ScoreChart from "./ScoreChart";
 import { Spinner } from "@/components/ui/spinner";
-import { ChevronDown } from "lucide-react";
-import { useRef } from "react";
 import Scoreboard from "./Scoreboard";
 import SuggestionSection from "../SuggestionSection";
 import ScoreExplanation from "./ScoreExplanation";

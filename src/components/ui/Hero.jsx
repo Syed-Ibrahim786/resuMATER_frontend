@@ -1,10 +1,10 @@
 import { ArrowRight, Sparkles, Target, Zap } from 'lucide-react'
 import React from 'react'
 import { Button } from './button'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, NavLink, useNavigate } from 'react-router-dom'
 
 const Hero = () => {
-  const navigate = useNavigate();
+ 
   return (
     <header>
         <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
@@ -38,8 +38,8 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Button variant="hero" size="xl" onClick={() => navigate("/mainPage")}>
-              Analyze My Resume
+            <Button variant="hero" size="xl" >
+              <NavLink to="/mainPage">Analyze My Resume</NavLink>
               <ArrowRight className="w-5 h-5" />
             </Button>
             <Button variant="heroOutline" size="xl">

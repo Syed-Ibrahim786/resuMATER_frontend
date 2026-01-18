@@ -1,10 +1,11 @@
 import React, { useEffect, useLayoutEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refresh } from "../services/authService";
 import { loginSuccess, authChecked } from "../slice/authSlice";
 
 const useAuthPersist = () => {
   const dispatch = useDispatch();
+  const {isAuthChecked} = useSelector((state) => state.auth);
 
   useEffect(() => { 
     async function refreshToken(){
@@ -21,7 +22,9 @@ const useAuthPersist = () => {
       }
     }
 
-    refreshToken();
+    !isAuthChecked && refreshToken();
+
+    return () => null;
       
 
   }, []);
