@@ -1,4 +1,4 @@
-import { loginSuccess } from "@/feature/auth/slice/authSlice";
+import { authChecked, loginSuccess } from "@/feature/auth/slice/authSlice";
 import { store } from "@/store/store";
 import axios from "axios";
 
@@ -34,22 +34,24 @@ api.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
         if(error.response?.status === 401 && !originalRequest._retry){
-            console.log("accesstoken expired")
+            console.log(error, error.response?.data)
             originalRequest._retry = true;
             try {
                 const response = await axios.post("/auth/refresh",{
                     withCredentials:true
                 })
                 const {access_token} =  response.data;
-                store.dispatch(loginSuccess({ token: access_token }))
+                store.dispatch(loginSuccess({ token: access_token, isAuthenticated:true }))
                 api.defaults.headers.common['Authorization'] = access_token;
                 return api(originalRequest);
             } catch (error) {
                 console.log("refreshtoken expired")
-                store.dispatch(loginSuccess({ token: null }));
-                window.location.href = "/login";
+                store.dispatch(loginSuccess({ token: null, isAuthenticated:false }));
+                window.location.href = "/login"; 
                 return Promise.reject(error);
 
+            }finally{
+                store.dispatch(authChecked())
             }
         }
         return Promise.reject(error);

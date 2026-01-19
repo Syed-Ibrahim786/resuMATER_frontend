@@ -5,26 +5,28 @@ import { loginSuccess, authChecked } from "../slice/authSlice";
 
 const useAuthPersist = () => {
   const dispatch = useDispatch();
-  const {isAuthChecked} = useSelector((state) => state.auth);
+  const {isAuthChecked, isAuthenticated} = useSelector((state) => state.auth);
 
   useEffect(() => { 
     async function refreshToken(){
       
       try {
         const res = await refresh();
-        dispatch(loginSuccess({ token: res.data.access_token }))
+        dispatch(loginSuccess({ token: res.data.access_token, isAuthenticated:true }))
         console.log("refresh successfull")
         
       } catch (error) {
         console.log(error);
-      }finally{
-        dispatch(authChecked());
+      }
+      finally{
+        dispatch(authChecked())
       }
     }
 
-    !isAuthChecked && refreshToken();
+    // !isAuthChecked && refreshToken();
+    !isAuthenticated && refreshToken();
 
-    return () => null;
+    
       
 
   }, []);

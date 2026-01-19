@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LoginPageUI } from "./LoginPageUI";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../slice/authSlice";
+import { authChecked, loginSuccess } from "../slice/authSlice";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/authService";
 
@@ -25,8 +25,9 @@ const LoginPageContainer = () => {
     try {
       console.log("starting");
       const response = await login(credentials);
-      dispatch(loginSuccess({ token: response.data.access_token }));
+      dispatch(loginSuccess({ token: response.data.access_token, isAuthenticated:true }));
       console.log(response);
+      dispatch(authChecked());
       navigate("/mainPage")
     } catch (error) {
       console.log(error)
@@ -34,7 +35,6 @@ const LoginPageContainer = () => {
       setErrorMsg(error.response?.data?.errors || error.response?.data?.message || "something went wrong");
     } finally {
       setLoading(false);
-      
     }
   }
 

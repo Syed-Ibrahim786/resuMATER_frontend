@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Button } from "./button";
 const Navbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  console.log(isAuthenticated)
   return (
     <>
       <nav className=" px-6 py-4 flex justify-between items-center  sticky top-0 w-full z-49 bg-surface/50 border-b border-default backdrop-blur-2xl">

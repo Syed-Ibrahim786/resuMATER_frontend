@@ -8,7 +8,7 @@ import useAuthPersist from "./feature/auth/hooks/useAuthPersist";
 import LandingPage from "./page/LandingPage";
 
 const App = () => {
-  useAuthPersist();
+  // useAuthPersist();
   return (
     <Routes>
       <Route path="/" element={<Navbar/>}>
