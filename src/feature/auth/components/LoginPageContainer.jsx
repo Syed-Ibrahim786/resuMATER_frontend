@@ -27,7 +27,7 @@ const LoginPageContainer = () => {
       const response = await login(credentials);
       dispatch(loginSuccess({ token: response.data.access_token, isAuthenticated:true }));
       console.log(response);
-      dispatch(authChecked());
+      
       navigate("/mainPage")
     } catch (error) {
       console.log(error)
@@ -35,6 +35,7 @@ const LoginPageContainer = () => {
       setErrorMsg(error.response?.data?.errors || error.response?.data?.message || "something went wrong");
     } finally {
       setLoading(false);
+      dispatch(authChecked());
     }
   }
 

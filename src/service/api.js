@@ -33,16 +33,15 @@ api.interceptors.response.use(
     response => response,
     async (error) => {
         const originalRequest = error.config;
-        if(error.response?.status === 401 && !originalRequest._retry){
+        if(error.response?.status === 401 && !originalRequest._retry &&
+      !originalRequest.url.includes("/auth/refresh")){
             console.log(error, error.response?.data)
             originalRequest._retry = true;
             try {
-                const response = await axios.post("/auth/refresh",{
-                    withCredentials:true
-                })
+                const response = await api.post("/auth/refresh")
                 const {access_token} =  response.data;
                 store.dispatch(loginSuccess({ token: access_token, isAuthenticated:true }))
-                api.defaults.headers.common['Authorization'] = access_token;
+                originalRequest.headers.Authorization = `Bearer ${access_token}`;
                 return api(originalRequest);
             } catch (error) {
                 console.log("refreshtoken expired")
@@ -50,8 +49,6 @@ api.interceptors.response.use(
                 window.location.href = "/login"; 
                 return Promise.reject(error);
 
-            }finally{
-                store.dispatch(authChecked())
             }
         }
         return Promise.reject(error);
