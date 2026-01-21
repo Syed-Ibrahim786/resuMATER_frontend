@@ -1,4 +1,4 @@
-import  {  useState } from "react";
+import  {  useEffect, useState } from "react";
 import UploadUI from "./UploadUI";
 import { analyze } from "../service/analyzeService";
 
@@ -13,6 +13,7 @@ const UploadContainer = () => {
   const [res, setRes] = useState();
 
   const [suggestions, setSuggestions] = useState([]);
+  const [previewURL, setPreviewURL] = useState(null);
 
   
   async function analyzeResume(data) {
@@ -52,6 +53,13 @@ const UploadContainer = () => {
     JD: "",
   });
 
+  useEffect(() => {
+    return () => {
+      console.log("url flushed")
+      if(previewURL)  URL.revokeObjectURL(previewURL);
+    }
+  },[previewURL])
+
 
  
 
@@ -66,6 +74,8 @@ const UploadContainer = () => {
       data={data}
       setData={setData}
       suggestions={suggestions}
+      previewURL={previewURL}
+      setPreviewURL={setPreviewURL}
     />
   );
 };
