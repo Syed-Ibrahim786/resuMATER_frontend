@@ -6,6 +6,7 @@ import ProtectedRoute from "./feature/auth/route/ProtectedRoute";
 import Navbar from "./components/ui/Navbar";
 import useAuthPersist from "./feature/auth/hooks/useAuthPersist";
 import LandingPage from "./page/LandingPage";
+import PlatformsContainer from "./feature/platforms/PlatformsContainer";
 
 const App = () => {
   // useAuthPersist();
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="register" element={<Register />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/mainPage" element={<Upload />} />
+        <Route path="/platforms" element={<PlatformsContainer/>}/>
       </Route>
       </Route>
     </Routes>

@@ -2,11 +2,12 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { refresh } from "../services/authService";
 import { loginSuccess, authChecked } from "../slice/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const useAuthPersist = () => {
   const dispatch = useDispatch();
   const {isAuthChecked, isAuthenticated} = useSelector((state) => state.auth);
-
+  const navigate = useNavigate();
   useEffect(() => { 
     async function refreshToken(){
       
@@ -17,6 +18,7 @@ const useAuthPersist = () => {
         
       } catch (error) {
         console.log(error);
+        navigate("/login");
       }
       finally{
         dispatch(authChecked())

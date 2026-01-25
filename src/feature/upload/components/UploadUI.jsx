@@ -20,7 +20,7 @@ const UploadUI = ({
   setPreviewURL,
 }) => {
   return (
-    <main className="flex flex-col gap-6 w-full items-center mt-10 mb-16 ">
+    <main className="flex flex-col gap-6 w-full items-center mt-10 mb-16 px-2">
       <form
         onSubmit={(e) => {
           e.preventDefault();
