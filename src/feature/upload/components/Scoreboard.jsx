@@ -13,7 +13,7 @@ const Scoreboard = ({res}) => {
             <ResumeScoreChart
               score={res.skillScore}
               className="col-span-1 row-span-1 "
-              title="Skills Score"
+              title="Skillset Score"
             />
             <ResumeScoreChart
               score={res.projectScore}

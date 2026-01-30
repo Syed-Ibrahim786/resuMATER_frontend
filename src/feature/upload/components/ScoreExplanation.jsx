@@ -27,10 +27,10 @@ const ScoreExplanation = ({ res }) => {
           <ChevronDown />
         </button>
       </h1>
-      <div ref={scoreExplanationContainer} style={{ display: "none" }}>
+      <div ref={scoreExplanationContainer} style={{ display: "none" }} className="mt-4 p-6 bg-surface rounded-2xl border border-default ">
         {res.scoreExplanation?.map((entry, index) => (
-          <p className="text-muted" key={index}>
-            <b className="text-lg block">{entry.scoreType}</b>
+          <p className="text-muted border-l-4 border-amber-400 mb-6 pl-6 py-4" key={index}>
+            <b className="mb-2 text-lg font-medium block">{entry.scoreType}</b>
             <p className="text-sm">{entry.explanation}</p>
           </p>
         ))}

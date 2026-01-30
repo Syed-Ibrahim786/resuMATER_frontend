@@ -3,9 +3,12 @@ import JDTextarea from "./JDTextarea";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import Scoreboard from "./Scoreboard";
-import SuggestionSection from "../SuggestionSection";
+import SuggestionSection from "./SuggestionSection";
 import ScoreExplanation from "./ScoreExplanation";
-import AboutScore from "./AboutScore";
+import AboutScore from "../../../page/AboutScore";
+import { TrendingUp } from "lucide-react";
+import Insights from "./Insights";
+import { NavLink } from "react-router-dom";
 
 const UploadUI = ({
   res,
@@ -41,8 +44,8 @@ const UploadUI = ({
           <p className="text-center text-error font-medium">{errorMsg}</p>
         )}
 
-        <Button disabled={loading} className="bg-primary hover-bg-primary-dark">
-          Analyze
+        <Button disabled={loading} className="bg-primary hover-bg-primary-dark shadow-2xl">
+          <TrendingUp/>Analyze
         </Button>
       </form>
 
@@ -57,13 +60,19 @@ const UploadUI = ({
         <article className="w-[90%] flex flex-col gap-10">
           <Scoreboard res={res} />
 
+          <Insights label={"Critical Issue"} insight={res['critical issues']}/>
+          <Insights label={"Minor Issue"} insight={res['minor issues']}/>
+          <Insights label={"best things"} insight={res['best things']}/>
+
+
           <SuggestionSection suggestions={suggestions} />
 
           <ScoreExplanation res={res} />
           {/* <span className=" w-fit text-muted border rounded-2xl p-1 border-default">Why Trust us?</span>
             <div className="w-full border-b border-default"></div> */}
 
-          <AboutScore />
+          {/* <AboutScore /> */}
+            <NavLink to="/how" className="w-fit mx-auto py-2 px-4 rounded-2xl text-white font-medium bg-gray-600">how <span className="text-primary ">resuMATER</span> calculates score?</NavLink>
         </article>
       ) : (
         <></>

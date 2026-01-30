@@ -5,7 +5,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 const Sidebar = () => {
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     
 
     const navItems = [
@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div>
 
-        <Button variant='outline' size='icon' onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="fixed top-3 left-2 z-60 hover:bg-surface">{isSidebarOpen ? <X className='text-muted rounded-sm '/> : <SidebarIcon className='text-muted'/> }</Button>
+        <Button variant='outline' size='icon' onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="fixed top-3 left-2 z-[60]  cursor-pointer">{isSidebarOpen ? <X className='text-muted rounded-sm border border-default size-icon hover:bg-surface'/> : <SidebarIcon className='text-muted hover:bg-surface'/> }</Button>
    <aside className={`fixed z-50 top-0 w-[70%] sm:w-[40%] lg:w-[30%]  flex flex-col justify-evenly  min-h-screen transition-all duration-300 ease-in-out border-1 border-default bg-bg ${!isSidebarOpen ? `translate-x-[-100%]`:``}`}>
     <div className=' px-8 pt-10 pb-6 flex flex-col gap-2 border-b-2 border-default'>
     

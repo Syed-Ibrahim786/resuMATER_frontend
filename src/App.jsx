@@ -9,6 +9,7 @@ import LandingPage from "./page/LandingPage";
 import PlatformsContainer from "./feature/platforms/PlatformsContainer";
 import Sidebar from "./layout/Sidebar";
 import NotFound from "./feature/upload/page/NotFound";
+import AboutScore from "./page/AboutScore";
 
 const App = () => {
   // useAuthPersist();
@@ -16,6 +17,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navbar />}>
         <Route index element={<LandingPage />} />
+        <Route path="how" element={<AboutScore/>}/>
 
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
