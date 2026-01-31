@@ -81,7 +81,7 @@ const UploadContainer = () => {
     "5. **Consider a Cover Letter:** Given the experience gap, a compelling cover letter is crucial. Use it to explain why you are a strong candidate despite not meeting the strict '1-2 years' professional experience, by highlighting the depth and breadth of your project work and enthusiasm for the role and MERN stack."
 })
 
-// const [res, setRes] = useState({})
+// const [res, setRes] = useState();
 
   const [suggestions, setSuggestions] = useState(["1.  **Tailor for Detailed JDs:** While this resume is excellent for 'mern stack dev', for future, more detailed job descriptions, customize the 'Professional Summary' and project descriptions to incorporate specific keywords and requirements from each unique JD (e.g., cloud platforms, testing frameworks, specific methodologies like Agile).",
     "2.  **Elaborate on Impact:** For each project, consider adding a 'Problem-Solution-Impact' structure to show not just *what* was built, but *why* and *what value* it delivered.",

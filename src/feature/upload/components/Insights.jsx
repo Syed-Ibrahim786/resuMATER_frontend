@@ -26,7 +26,7 @@ const Insights = ({ label, insight }) => {
     icon: insightsStyle[lowerCaseLabel].icon,
   };
   return (
-    <section className="p-6 bg-surface border-2 border-default rounded-2xl">
+    <section className="p-6 bg-surface border-2 border-default rounded-2xl animate-fade-in-up">
         <div className="flex gap-2  items-center mb-4 text-white text-xl font-bold ">
           {<currentStyles.icon />}
           <h2>{label}</h2>

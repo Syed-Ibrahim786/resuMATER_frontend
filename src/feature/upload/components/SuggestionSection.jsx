@@ -3,7 +3,7 @@ import React from "react";
 
 const SuggestionSection = ({suggestions}) => {
   return (
-    <section className="p-6 rounded-2xl border border-default bg-surface">
+    <section className="p-6 rounded-2xl border border-default bg-surface animate-fade-in-up">
       <div className="mb-6 flex gap-2 items-center text-white text-xl font-bold ">
         
         <Lightbulb />

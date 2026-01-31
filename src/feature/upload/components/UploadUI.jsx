@@ -22,6 +22,7 @@ const UploadUI = ({
   previewURL,
   setPreviewURL,
 }) => {
+  console.log(res)
   return (
     <main className="flex flex-col gap-6 w-full items-center mt-10 mb-16 px-2">
       <form
@@ -56,7 +57,8 @@ const UploadUI = ({
         </div>
       )}
 
-      {res ? (
+      {
+      res ? (
         <article className="w-[90%] flex flex-col gap-10">
           <Scoreboard res={res} />
 
@@ -72,10 +74,12 @@ const UploadUI = ({
             <div className="w-full border-b border-default"></div> */}
 
           {/* <AboutScore /> */}
-            <NavLink to="/how" className="w-fit mx-auto py-2 px-4 rounded-2xl text-white font-medium bg-gray-600">how <span className="text-primary ">resuMATER</span> calculates score?</NavLink>
+            <NavLink to="/how" className="w-fit mx-auto py-2 px-4 rounded-2xl text-white font-medium bg-gray-600 animate-fade-in-up">how <span className="text-primary ">resuMATER</span> calculates score?</NavLink>
         </article>
       ) : (
-        <></>
+        <div>
+          
+        </div>
       )}
     </main>
   );

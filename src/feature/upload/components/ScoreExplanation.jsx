@@ -16,7 +16,7 @@ const ScoreExplanation = ({ res }) => {
      
   }
   return (
-    <section>
+    <section className="animate-fade-in-up">
       <h1 className=" flex justify-between text-muted font-bold p-4 bg-surface">
         Why this Score?
         <button

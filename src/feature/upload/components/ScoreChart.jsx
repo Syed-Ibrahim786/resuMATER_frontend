@@ -11,7 +11,7 @@ import { Info } from "lucide-react"
 
 
 
-const ResumeScoreChart = ({ score = 82 , className = "", title, aboutScore}) => {
+const ResumeScoreChart = ({ score , className = "", title, aboutScore}) => {
   const chartData = [
     { name: "Score", value: score, fill: "green" },
     { name: "Remaining", value: 100 - score, fill: "red " },
