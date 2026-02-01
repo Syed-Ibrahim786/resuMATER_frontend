@@ -42,13 +42,15 @@ const UploadUI = ({
 
         <JDTextarea data={data} setData={setData} />
 
-        {error && (
-          <p className="text-center text-error font-medium">{errorMsg}</p>
-        )}
+        
 
         <Button disabled={loading} className="bg-primary hover-bg-primary-dark shadow-2xl">
           <TrendingUp/>Analyze
         </Button>
+
+        {error && (
+          <p className="text-center text-error font-medium">{errorMsg}</p>
+        )}
       </form>
 
       {loading && (
@@ -81,7 +83,7 @@ const UploadUI = ({
         </article>
       ) : (
         <div>
-          
+          <p className="text-4xl font-bold text-muted/10">provide input</p>
         </div>
       )}
     </main>

@@ -21,7 +21,7 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
   }
   return (
     <div
-      className="flex justify-end flex-col bg-surface p-6
+      className="flex justify-end flex-col bg-surface border border-default p-6
      rounded-2xl 
      text-muted"
       onDragOver={(e) => {
@@ -31,16 +31,16 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
       onDrop={handleDrop}
       ref={dragAndDropBox}
     >
-      <div className="flex justify-center items-center border-4 border-dashed  border-default h-[70%] rounded-2xl">
+      <div className="flex justify-center items-center p-4 border-4 border-dashed  border-default md:h-[70%] rounded-2xl">
 
       {
-        previewURL ?
-        <iframe 
-        src={`${previewURL}#page=1&zoom=100`}
-        title="resume preview"
-        className="overflow-scroll custom-scrollbar w-[70%] rounded-lg "
-        />
-        :
+        // previewURL ?
+        // <iframe 
+        // src={`${previewURL}#page=1&zoom=100`}
+        // title="resume preview"
+        // className="overflow-scroll custom-scrollbar w-[70%] rounded-lg "
+        // />
+        // :
        data.resume ? (
         <div className="flex gap-2 flex-wrap ">
           <p>{data.resume.name} </p>
@@ -49,8 +49,8 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center">
-        <Upload size={80} className="text-muted/70"/>
+        <div className="flex flex-col justify-center items-center ">
+        <Upload size={60} className="text-muted/70"/>
           
           <Label htmlFor="pdf" className="text-lg font-light text-accent ">
             Click to enter Resume
@@ -73,7 +73,7 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
             accept=".pdf"
             required
           />
-          <Label  className="text-md">
+          <Label  className="text-sm">
             or Drag & Drop
           </Label>
           {/* <p className="text-accent font-light text-sm">
