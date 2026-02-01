@@ -97,10 +97,15 @@ console.log(Object.entries(jobPlatforms))
   return (
     <main className='px-4 pt-10 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950'>
         {/* <h1 className='text-white'>Alhamdhulillah</h1> */}
-        <div className='text-center mb-10 animate-fade-in-up'>
-        <h1 className='mb-4 text-5xl md:text-5xl font-bold text-gradient text-transparent bg-clip-text capitalize'>job platforms</h1>
-        <p className='text-lg text-muted '>Discover opportunities across top hiring platforms</p>
-        </div>
+        <div className='relative text-center mb-12 animate-fade-in-up'>
+        <div className='absolute inset-0 bg-gradient-hero pointer-events-none'></div>
+        <h1 className='relative mb-4 text-5xl md:text-6xl font-bold text-gradient capitalize'>
+          Job Platforms
+        </h1>
+        <p className='relative text-lg text-muted'>
+          Discover opportunities across top hiring platforms
+        </p>
+      </div>
 
 
 

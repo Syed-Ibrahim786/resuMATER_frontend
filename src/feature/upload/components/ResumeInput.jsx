@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { X } from "lucide-react";
+import { Upload, X } from "lucide-react";
 import { useRef } from "react";
 
 export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
@@ -21,8 +21,8 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
   }
   return (
     <div
-      className="flex justify-center items-center flex-col bg-surface p-8
-     rounded-2xl border-2 border-dashed  border-default 
+      className="flex justify-end flex-col bg-surface p-6
+     rounded-2xl 
      text-muted"
       onDragOver={(e) => {
         e.preventDefault();
@@ -30,16 +30,18 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
       }}
       onDrop={handleDrop}
       ref={dragAndDropBox}
-    >{
-        previewURL && 
+    >
+      <div className="flex justify-center items-center border-4 border-dashed  border-default h-[70%] rounded-2xl">
+
+      {
+        previewURL ?
         <iframe 
         src={`${previewURL}#page=1&zoom=100`}
         title="resume preview"
         className="overflow-scroll custom-scrollbar w-[70%] rounded-lg "
         />
-      }
-     
-      {data.resume ? (
+        :
+       data.resume ? (
         <div className="flex gap-2 flex-wrap ">
           <p>{data.resume.name} </p>
           <p onClick={flush}>
@@ -47,12 +49,11 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
           </p>
         </div>
       ) : (
-        <>
-          <Label htmlFor="pdf" className="text-lg">
-            Drag&Drop
-          </Label>
-          <Label className="text-sm font-light text-accent">
-            or Click to enter Resume
+        <div className="flex flex-col justify-center items-center">
+        <Upload size={80} className="text-muted/70"/>
+          
+          <Label htmlFor="pdf" className="text-lg font-light text-accent ">
+            Click to enter Resume
           </Label>
           <Input
             onChange={(e) => {
@@ -72,11 +73,15 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
             accept=".pdf"
             required
           />
+          <Label  className="text-md">
+            or Drag & Drop
+          </Label>
           {/* <p className="text-accent font-light text-sm">
           max size: 1 MB (pdf only)
         </p> */}
-        </>
+        </div>
       )}
+      </div>
       
       
     </div>

@@ -9,6 +9,7 @@ import AboutScore from "../../../page/AboutScore";
 import { TrendingUp } from "lucide-react";
 import Insights from "./Insights";
 import { NavLink } from "react-router-dom";
+import Enhancement from "./Enhancement";
 
 const UploadUI = ({
   res,
@@ -65,6 +66,8 @@ const UploadUI = ({
           <Insights label={"Critical Issue"} insight={res['critical issues']}/>
           <Insights label={"Minor Issue"} insight={res['minor issues']}/>
           <Insights label={"best things"} insight={res['best things']}/>
+
+          <Enhancement enhancement={res['Best Suggestion']}/>
 
 
           <SuggestionSection suggestions={suggestions} />

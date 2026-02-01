@@ -6,7 +6,7 @@ import React from "react";
 
 const JDTextarea = ({ data, setData }) => {
   return (
-    <section className="bg-surface text-muted py-6 px-4 rounded-2xl border border-default">
+    <section className="bg-surface text-muted py-6 px-6 rounded-2xl border border-default">
 
       <Label htmlFor="JD" className="flex flex-col items-start text-lg">
         <div className="flex gap-2">

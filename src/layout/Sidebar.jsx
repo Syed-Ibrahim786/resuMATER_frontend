@@ -9,12 +9,12 @@ const Sidebar = () => {
     
 
     const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/mainPage" },
+    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/dashboard" },
     { id: 'platforms', label: 'Job Platforms', icon: Briefcase, route:"/platforms" },
-    { id: 'saved', label: 'Saved Jobs', icon: BookmarkCheck, route:"/mainPage1" },
-    { id: 'applications', label: 'Applications', icon: TrendingUp, route:"/mainPage2" },
-    { id: 'resume', label: 'Resume', icon: FileText , route:"/mainPage3"},
-    { id: 'profile', label: 'Profile', icon: User, route:"/mainPage4" }
+    { id: 'saved', label: 'Saved Jobs', icon: BookmarkCheck, route:"/savedJobs" },
+    { id: 'applications', label: 'Applications', icon: TrendingUp, route:"/applications" },
+    { id: 'resume', label: 'Resume', icon: FileText , route:"/resume"},
+    { id: 'profile', label: 'Profile', icon: User, route:"/profile" }
   ];
   return (
     <div>
