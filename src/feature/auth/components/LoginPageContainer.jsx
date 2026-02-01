@@ -28,7 +28,7 @@ const LoginPageContainer = () => {
       dispatch(loginSuccess({ token: response.data.access_token, isAuthenticated:true }));
       console.log(response);
       
-      navigate("/mainPage")
+      navigate("/applications")
     } catch (error) {
       console.log(error)
       setError(true);

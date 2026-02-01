@@ -17,13 +17,13 @@ const App = () => {
   // useAuthPersist();
   return (
     <Routes>
-      <Route element={<Footer />}>
         <Route path="/" element={<Navbar />}>
           <Route index element={<LandingPage />} />
-          <Route path="how" element={<AboutScore />} />
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+      <Route element={<Footer />}>
+          <Route path="how" element={<AboutScore />} />
 
           <Route element={<ProtectedRoute />}>
             <Route element={<Sidebar />}>
