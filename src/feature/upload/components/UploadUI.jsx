@@ -44,7 +44,7 @@ const UploadUI = ({
 
         
 
-        <Button disabled={loading || !res} className="bg-primary hover-bg-primary-dark shadow-2xl">
+        <Button disabled={loading || !data.JD || !data.resume} className="bg-primary hover-bg-primary-dark shadow-2xl">
           <TrendingUp/>Analyze
         </Button>
 
