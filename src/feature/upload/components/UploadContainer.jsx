@@ -1,8 +1,8 @@
-import  {  useEffect, useState } from "react";
+import  {  useCallback, useEffect, useState } from "react";
 import UploadUI from "./UploadUI";
 import { analyze } from "../service/analyzeService";
 import { cleansSuggestion } from "@/util/cleanseAIData";
-
+import _ from "lodash";
 const UploadContainer = () => {
   
   const [loading, setLoading] = useState(false);
@@ -93,7 +93,7 @@ const [res, setRes] = useState();
     const [previewURL, setPreviewURL] = useState(null);
 
   
-  async function analyzeResume(data) {
+  const analyzeResume = useCallback( async (data) => {
     const formData = new FormData();
 
     formData.append("resume", data.resume);
@@ -115,7 +115,9 @@ const [res, setRes] = useState();
     } finally {
       setLoading(false);
     }
-  }
+  },[]);
+
+  const debouncedAnalyzeResume = _.debounce(analyzeResume);
 
   
   const [data, setData] = useState({
@@ -136,7 +138,7 @@ const [res, setRes] = useState();
   return (
     <UploadUI
       res={res}
-      analyzeResume={analyzeResume}
+      analyzeResume={debouncedAnalyzeResume}
       loading={loading}
       setLoading={setLoading}
       error={error}

@@ -44,12 +44,12 @@ const UploadUI = ({
 
         
 
-        <Button disabled={loading} className="bg-primary hover-bg-primary-dark shadow-2xl">
+        <Button disabled={loading || !res} className="bg-primary hover-bg-primary-dark shadow-2xl">
           <TrendingUp/>Analyze
         </Button>
 
         {error && (
-          <p className="text-center text-error font-medium">{errorMsg}</p>
+          <p className="text-center text-error font-medium">{errorMsg || "some error occured"}</p>
         )}
       </form>
 

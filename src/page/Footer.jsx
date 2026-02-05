@@ -2,13 +2,17 @@ import { Button } from "@/components/ui/button";
 import {
   ExternalLink,
   FileText,
-  Github,
-  Linkedin,
   Mail,
   Shield,
   TrendingUp,
-  Twitter,
 } from "lucide-react";
+
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaWhatsapp 
+} from 'react-icons/fa';
+
 import React from "react";
 import { Outlet } from "react-router-dom";
 
@@ -38,24 +42,24 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      icon: Github,
+      icon: FaGithub,
       href: "https://github.com/syed-ibrahim786/resumater",
     },
     {
       name: "LinkedIn",
-      icon: Linkedin,
+      icon: FaLinkedin,
       href: "https://linkedin.com/in/syed-ibrahim2003",
     },
     {
       name: "Twitter",
-      icon: Twitter,
-      href: "https://twitter.com/yourusername",
+      icon: FaWhatsapp,
+      href: "https://wa.me/919384799362",
     },
   ];
   return (
     <>
       <Outlet />
-      <footer className="p-6 bg-surface border border-default">
+      <footer className="p-6 bg-bg border border-default">
         <div className="flex gap-2 items-center mb-4">
           <b className="flex justify-center items-center text-white w-10 h-10  rounded-lg bg-primary">
             <FileText className="" />
@@ -79,8 +83,9 @@ const Footer = () => {
           </a>
         </div>
 
+
         {/* Social Links */}
-        {/* <div className="flex gap-3">
+        <div className="flex gap-3 mb-10">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -96,9 +101,11 @@ const Footer = () => {
                   </a>
                 );
               })}
-            </div> */}
+            </div>
 
+      <div className="flex flex-col sm:flex-row sm:gap-10">
         {/* Product Links */}
+        
         <div className=" mb-6">
           <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-accent" />
@@ -138,6 +145,7 @@ const Footer = () => {
               </li>
             ))}
           </ul>
+        </div>
         </div>
 
         <div className=" mt-10 py-6  flex flex-col justify-center items-center text-center text-accent gap-4 border-t-2 border-b-2 border-default">

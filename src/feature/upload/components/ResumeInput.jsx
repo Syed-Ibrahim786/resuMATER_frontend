@@ -50,7 +50,7 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center ">
-        <Upload size={60} className="text-muted/70"/>
+        <Upload size={60} className="text-muted/70 opacity-40"/>
           
           <Label htmlFor="pdf" className="text-lg font-light text-accent ">
             Click to enter Resume

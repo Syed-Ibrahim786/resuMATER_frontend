@@ -8,7 +8,7 @@ import useAuthPersist from "./feature/auth/hooks/useAuthPersist";
 import LandingPage from "./page/LandingPage";
 import PlatformsContainer from "./feature/platforms/PlatformsContainer";
 import Sidebar from "./layout/Sidebar";
-import NotFound from "./feature/upload/page/NotFound";
+import NotFound from "./page/NotFound";
 import AboutScore from "./page/AboutScore";
 import Footer from "./page/Footer";
 import InDevelopment from "./page/InDevelopment";

@@ -39,7 +39,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <Button variant="hero" size="xl" >
-              <NavLink to="/mainPage">Analyze My Resume</NavLink>
+              <NavLink to="/applications">Analyze My Resume</NavLink>
               <ArrowRight className="w-5 h-5" />
             </Button>
             <Button variant="heroOutline" size="xl">
