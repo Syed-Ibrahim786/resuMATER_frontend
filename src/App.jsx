@@ -12,6 +12,8 @@ import NotFound from "./page/NotFound";
 import AboutScore from "./page/AboutScore";
 import Footer from "./page/Footer";
 import InDevelopment from "./page/InDevelopment";
+import Dashboard from "./page/Dashboard";
+import ResumeContainer from "./feature/resume/ResumeContainer";
 
 const App = () => {
   // useAuthPersist();
@@ -29,9 +31,9 @@ const App = () => {
             <Route element={<Sidebar />}>
               <Route path="/applications" element={<Upload />} />
               <Route path="/platforms" element={<PlatformsContainer />} />
-              <Route path="/dashboard" element={<InDevelopment/>}/>
+              <Route path="/dashboard" element={<Dashboard/>}/>
+              <Route path="/resume" element={<ResumeContainer/>}/>
               <Route path="/savedJobs" element={<InDevelopment/>}/>
-              <Route path="/resume" element={<InDevelopment/>}/>
               <Route path="profile" element={<InDevelopment/>}/>
             </Route>
           </Route>

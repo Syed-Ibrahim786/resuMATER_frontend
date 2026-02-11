@@ -59,7 +59,7 @@ const Footer = () => {
   return (
     <>
       <Outlet />
-      <footer className="p-6 bg-bg border border-default">
+      <footer className="mt-[200px] p-6 bg-bg border border-default">
         <div className="flex gap-2 items-center mb-4">
           <b className="flex justify-center items-center text-white w-10 h-10  rounded-lg bg-primary">
             <FileText className="" />

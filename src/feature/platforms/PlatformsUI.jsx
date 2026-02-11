@@ -99,10 +99,10 @@ console.log(Object.entries(jobPlatforms))
         {/* <h1 className='text-white'>Alhamdhulillah</h1> */}
         <div className='relative text-center mb-12 animate-fade-in-up'>
         <div className='absolute inset-0 bg-gradient-hero pointer-events-none'></div>
-        <h1 className='relative mb-4 text-5xl md:text-6xl font-bold text-gradient capitalize'>
+        <h1 className='relative  text-3xl md:text-4xl font-bold text-gradient capitalize'>
           Job Platforms
         </h1>
-        <p className='relative text-lg text-muted'>
+        <p className='relative text-sm font-semibold text-gray-500'>
           Discover opportunities across top hiring platforms
         </p>
       </div>
@@ -115,7 +115,7 @@ console.log(Object.entries(jobPlatforms))
                 const categoryBg = categoryColors[category];
                 return (
                 <div key={category} className='mb-10 animate-fade-in'>
-                    <h2 className='flex items-center gap-4 mb-4 text-white text-xl md:text-2xl font-bold capitalize'><div className={`p-3 rounded-sm bg-gradient-to-br ${categoryBg} `}><Icon className=""/></div>{category}</h2>
+                    <h2 className='flex items-center gap-4 mb-4 text-gray-300 text-xl md:text-2xl font-bold brightness-80  capitalize'><div className={`p-3 rounded-sm bg-gradient-to-br ${categoryBg} `}><Icon className=""/></div>{category}</h2>
                     <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                         {
                             platforms.map((p, index) => (
@@ -123,7 +123,7 @@ console.log(Object.entries(jobPlatforms))
                                 key={index}
                                 href={p.url}
                                 target='_blank'
-                                className='p-4 border-2 rounded-lg border-default bg-surface text-muted font-bold hover:text-white transition-all duration-300  hover:bg-gradient-card hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1'
+                                className='p-4 border-2 rounded-lg border-default bg-surface text-gray-300/85 font-bold hover:text-white transition-all duration-300  hover:bg-gradient-card hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1'
                                 >{p.name}
                                 </a>
                             ))

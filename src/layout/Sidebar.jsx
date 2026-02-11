@@ -9,12 +9,12 @@ const Sidebar = () => {
     
 
     const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/dashboard" },
-    { id: 'platforms', label: 'Job Platforms', icon: Briefcase, route:"/platforms" },
-    { id: 'saved', label: 'Saved Jobs', icon: BookmarkCheck, route:"/savedJobs" },
-    { id: 'applications', label: 'Applications', icon: TrendingUp, route:"/applications" },
-    { id: 'resume', label: 'Resume', icon: FileText , route:"/resume"},
-    { id: 'profile', label: 'Profile', icon: User, route:"/profile" }
+    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/dashboard", tag:"" },
+    { id: 'platforms', label: 'Job Platforms', icon: Briefcase, route:"/platforms", tag:"" },
+    { id: 'saved', label: 'Saved Jobs', icon: BookmarkCheck, route:"/savedJobs", tag:"soon" },
+    { id: 'applications', label: 'Applications', icon: TrendingUp, route:"/applications", tag:"" },
+    { id: 'resume', label: 'Resume', icon: FileText , route:"/resume",tag:"preview"},
+    { id: 'profile', label: 'Profile', icon: User, route:"/profile" ,tag:"soon"}
   ];
   return (
     <div>
@@ -26,12 +26,20 @@ const Sidebar = () => {
     <div><b className="text-primary text-xl sm:text-2xl font-bold">resuMATER</b><p className='text-[10px] text-muted'>learn, Analyze, Achieve</p></div>
     </div>
 
-    <div className=' flex flex-col px-8 py-6 border-b-2 border-default'>
+    <div className=' flex flex-col px-4 md:px-6 py-4 md:py-6 border-b-2 border-default'>
         {
             navItems.map((item) => (
-                <NavLink to={item.route} className={({isActive, isPending}) => isActive ? "p-4 bg-surface flex gap-4 rounded-lg text-white cursor-pointer" : "flex gap-4 p-4 text-white cursor-pointer" }>
+                <NavLink to={item.route} className={({isActive, isPending}) => isActive ? "p-4 bg-surface flex justify-between rounded-lg text-white shadow-2xl cursor-pointer" : " p-4 flex justify-between text-muted cursor-pointer" }>
+                    <div className='flex gap-4'>
                     <item.icon/>
                     {item.label}
+                    </div>
+                    {
+                        item.tag &&
+                        <p className='text-sm border  rounded-2xl  px-2 border-amber-400'>{item.tag}</p>
+
+                    }
+
                 </NavLink>
             ))
         }

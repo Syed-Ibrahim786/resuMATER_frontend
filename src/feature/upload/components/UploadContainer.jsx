@@ -117,7 +117,7 @@ const [res, setRes] = useState();
     }
   },[]);
 
-  const debouncedAnalyzeResume = _.debounce(analyzeResume);
+  const debouncedAnalyzeResume = _.debounce(analyzeResume, 2 * 60 * 1000 );
 
   
   const [data, setData] = useState({

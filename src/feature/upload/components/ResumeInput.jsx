@@ -52,7 +52,7 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
         <div className="flex flex-col justify-center items-center ">
         <Upload size={60} className="text-muted/70 opacity-40"/>
           
-          <Label htmlFor="pdf" className="text-lg font-light text-accent ">
+          <Label htmlFor="pdf" className="text-[16px] font-light text-accent ">
             Click to enter Resume
           </Label>
           <Input
@@ -73,7 +73,7 @@ export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
             accept=".pdf"
             required
           />
-          <Label  className="text-sm">
+          <Label  className="text-sm text-muted">
             or Drag & Drop
           </Label>
           {/* <p className="text-accent font-light text-sm">
