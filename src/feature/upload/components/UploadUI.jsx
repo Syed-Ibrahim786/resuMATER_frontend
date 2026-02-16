@@ -24,6 +24,7 @@ const UploadUI = ({
   setPreviewURL,
 }) => {
   console.log(res)
+  console.log(loading || !data.JD || !data.resume)
   return (
     <main className="flex flex-col gap-6 w-full items-center mt-10 mb-16 px-2">
       <form

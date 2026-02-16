@@ -11,11 +11,11 @@ const SuggestionSection = ({suggestions}) => {
         </div>
       <ul className="py-4 px-6 border-l-4 border-amber-400 leading-7  bg-gradient-to-br from-orange-900/10 to-red-900/10">
         {suggestions.map((s, i) => (
-          <>
+          
             <li className="text-muted my-4" key={i}>
               {s}
             </li>
-          </>
+          
         ))}
       </ul>
     </section>

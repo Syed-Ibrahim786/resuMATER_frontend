@@ -9,7 +9,7 @@ const Sidebar = () => {
     
 
     const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/dashboard", tag:"" },
+    { id: 'dashboard', label: 'Dashboard', icon: Home, route:"/dashboard", tag:"preview" },
     { id: 'platforms', label: 'Job Platforms', icon: Briefcase, route:"/platforms", tag:"" },
     { id: 'saved', label: 'Saved Jobs', icon: BookmarkCheck, route:"/savedJobs", tag:"soon" },
     { id: 'applications', label: 'Applications', icon: TrendingUp, route:"/applications", tag:"" },
@@ -20,7 +20,7 @@ const Sidebar = () => {
     <div>
 
         <Button variant='outline' size='icon' onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="fixed top-3 left-2 z-[60]  cursor-pointer">{isSidebarOpen ? <X className='text-muted rounded-sm border border-default size-icon hover:bg-surface'/> : <SidebarIcon className='text-muted hover:bg-surface'/> }</Button>
-   <aside className={`fixed z-50 top-0 w-[70%] sm:w-[40%] lg:w-[30%]  flex flex-col justify-evenly  min-h-screen transition-all duration-300 ease-in-out border-1 border-default bg-bg ${!isSidebarOpen ? `translate-x-[-100%]`:``}`}>
+   <aside className={`fixed z-50 top-0 w-[70%] sm:w-[40%] lg:w-[30%]  flex flex-col justify-evenly  min-h-screen transition-all duration-300 ease-in-out border-1 border-default bg-bg rounded-tr-[40px] rounded-br-[40px] ${!isSidebarOpen ? `translate-x-[-100%]`:``}`}>
     <div className=' px-8 pt-10 pb-6 flex flex-col gap-2 border-b-2 border-default'>
     
     <div><b className="text-primary text-xl sm:text-2xl font-bold">resuMATER</b><p className='text-[10px] text-muted'>learn, Analyze, Achieve</p></div>
@@ -37,7 +37,6 @@ const Sidebar = () => {
                     {
                         item.tag &&
                         <p className='text-sm border  rounded-2xl  px-2 border-amber-400'>{item.tag}</p>
-
                     }
 
                 </NavLink>

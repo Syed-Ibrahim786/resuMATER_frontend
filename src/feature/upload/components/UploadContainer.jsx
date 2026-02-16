@@ -2,7 +2,7 @@ import  {  useCallback, useEffect, useState } from "react";
 import UploadUI from "./UploadUI";
 import { analyze } from "../service/analyzeService";
 import { cleansSuggestion } from "@/util/cleanseAIData";
-import _ from "lodash";
+// import _ from "lodash";
 const UploadContainer = () => {
   
   const [loading, setLoading] = useState(false);
@@ -82,6 +82,10 @@ const UploadContainer = () => {
 // })
 
 const [res, setRes] = useState();
+const [data, setData] = useState({
+    resume: "",
+    JD: "",
+  });
 
   // const [suggestions, setSuggestions] = useState(["1.  **Tailor for Detailed JDs:** While this resume is excellent for 'mern stack dev', for future, more detailed job descriptions, customize the 'Professional Summary' and project descriptions to incorporate specific keywords and requirements from each unique JD (e.g., cloud platforms, testing frameworks, specific methodologies like Agile).",
   //   "2.  **Elaborate on Impact:** For each project, consider adding a 'Problem-Solution-Impact' structure to show not just *what* was built, but *why* and *what value* it delivered.",
@@ -93,9 +97,9 @@ const [res, setRes] = useState();
     const [previewURL, setPreviewURL] = useState(null);
 
   
-  const analyzeResume = useCallback( async (data) => {
+  const analyzeResume = async (data) => {
     const formData = new FormData();
-
+console.log(data);
     formData.append("resume", data.resume);
     formData.append("JD", data.JD);
     setError(false);
@@ -112,18 +116,17 @@ const [res, setRes] = useState();
       console.log(error);
       setError(true);
       setErrorMsg("error");
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
-  },[]);
+  }
 
-  const debouncedAnalyzeResume = _.debounce(analyzeResume, 2 * 60 * 1000 );
+    const debouncedAnalyzeResume = useCallback((data) => analyzeResume(data), [data]);
+
 
   
-  const [data, setData] = useState({
-    resume: "",
-    JD: "",
-  });
+  
 
   useEffect(() => {
     return () => {

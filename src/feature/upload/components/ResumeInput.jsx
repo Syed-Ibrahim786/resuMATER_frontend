@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 export function ResumeInput({ data, setData, previewURL, setPreviewURL }) {
   const dragAndDropBox = useRef(null);
-  console.log(previewURL)
+  // console.log(previewURL)
   function handleDrop(e) {
     e.preventDefault();
     dragAndDropBox.current.classList.remove("bg-success");
